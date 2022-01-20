@@ -17,4 +17,5 @@ reduced_frame = rating[rating.anime_id.isin(user_rating_counts_frame.index.tolis
 
 reduced_frame = reduced_frame.replace(-1, np.nan)
 
-
+rating_matrix = reduced_frame.pivot_table(index='user_id', columns='anime_id', values='rating')
+rating_matrix = rating_matrix.fillna(0)
